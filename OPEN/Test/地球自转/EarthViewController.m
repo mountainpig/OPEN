@@ -131,6 +131,12 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     self.earthTexture = [GLKTextureLoader textureWithCGImage:[UIImage imageNamed:@"Earth512x256.jpg"].CGImage options:options error:nil];
     self.moonTexture = [GLKTextureLoader textureWithCGImage:[UIImage imageNamed:@"Moon256x128.png"].CGImage options:options error:nil];
     cEffect.texture2d0.enabled = GL_TRUE;
+    cEffect.texture2d0.name = self.earthTexture.name;
+    cEffect.texture2d0.target = self.earthTexture.target;
+    
+    cEffect.texture2d1.enabled =  GL_TRUE;
+    cEffect.texture2d1.name = self.moonTexture.name;
+    cEffect.texture2d1.target = self.moonTexture.target;
 }
 
 //太阳光
@@ -153,8 +159,10 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
 
 - (void)drawEarth
 {
-    cEffect.texture2d0.name = self.earthTexture.name;
-    cEffect.texture2d0.target = self.earthTexture.target;
+//    cEffect.texture2d0.name = self.earthTexture.name;
+//    cEffect.texture2d0.target = self.earthTexture.target;
+    
+    cEffect.textureOrder = [NSArray arrayWithObjects: cEffect.texture2d0, cEffect.texture2d1, nil];
     
     self.earthRotationAngleDegrees += 360.0f / 60.0f;
     
@@ -200,8 +208,11 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     
     self.moonRotationAngleDegrees += 360.0f / 60.0f;
     
-    cEffect.texture2d0.name = self.moonTexture.name;
-    cEffect.texture2d0.target = self.moonTexture.target;
+//    cEffect.texture2d0.name = self.moonTexture.name;
+//    cEffect.texture2d0.target = self.moonTexture.target;
+    
+    cEffect.textureOrder = [NSArray arrayWithObjects: cEffect.texture2d1, cEffect.texture2d0, nil];
+    
     
     GLKMatrixStackPush(self.modelviewMatrixStack);
     
