@@ -29,6 +29,44 @@
 
 @implementation TestView
 
+- (void)dealloc
+{
+    // Destroy framebuffers and renderbuffers
+    if (_myColorRenderBuffer) {
+        glDeleteFramebuffers(1, &_myColorRenderBuffer);
+        _myColorRenderBuffer = 0;
+    }
+    if (_myColorFrameBuffer) {
+        glDeleteRenderbuffers(1, &_myColorFrameBuffer);
+        _myColorFrameBuffer = 0;
+    }
+    /*
+    if (depthRenderbuffer)
+    {
+        glDeleteRenderbuffers(1, &depthRenderbuffer);
+        depthRenderbuffer = 0;
+    }
+    */
+    // texture
+    /*
+    if (brushTexture.id) {
+        glDeleteTextures(1, &brushTexture.id);
+        brushTexture.id = 0;
+    }
+     */
+    // vbo
+    /*
+    if (vboId) {
+        glDeleteBuffers(1, &vboId);
+        vboId = 0;
+    }
+    */
+    
+    // tear down context
+    if ([EAGLContext currentContext] == _myContext)
+        [EAGLContext setCurrentContext:nil];
+}
+
 
 - (NSMutableArray *)pointArray
 {

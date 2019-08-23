@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _listArray = @[@"三角形",@"绘图",@"金子塔"];
+    _listArray = @[@"三角形",@"绘图",@"金子塔",@"地球自转"];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 160)];
     tableView.dataSource = self;
@@ -48,8 +48,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *vc = [[UIViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-    UIView *view;
+    
+    UIView *view = [[UIView alloc] init];
     if (indexPath.row == 0) {
         view = [[TriangleView alloc] initWithFrame:self.view.bounds];
     }
@@ -59,6 +59,11 @@
     if (indexPath.row == 2) {
         view = [[NSClassFromString(@"TowerView") alloc] initWithFrame:self.view.bounds];
     }
+    if (indexPath.row == 3) {
+        vc = [[NSClassFromString(@"EarthViewController") alloc] init];
+    }
+    
+    [self.navigationController pushViewController:vc animated:YES];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [vc.view addSubview:view];

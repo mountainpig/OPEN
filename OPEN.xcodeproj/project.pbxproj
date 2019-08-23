@@ -18,6 +18,11 @@
 		091175C1230FCE5A0006EBC6 /* towerShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 091175BF230FCE5A0006EBC6 /* towerShader.fsh */; };
 		091175C9230FD36A0006EBC6 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 091175C3230FD36A0006EBC6 /* GLESUtils.m */; };
 		091175CA230FD36A0006EBC6 /* GLESMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 091175C5230FD36A0006EBC6 /* GLESMath.c */; };
+		091175EA230FFA880006EBC6 /* Earth512x256.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 091175E6230FFA880006EBC6 /* Earth512x256.jpg */; };
+		091175EB230FFA880006EBC6 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 091175E8230FFA880006EBC6 /* sphere.obj */; };
+		091175EC230FFA880006EBC6 /* Moon256x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 091175E9230FFA880006EBC6 /* Moon256x128.png */; };
+		091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 091175ED230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m */; };
+		091175F2231009FC0006EBC6 /* EarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091175F1231009FC0006EBC6 /* EarthViewController.m */; };
 		095ABC94230E8CFE007209A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 095ABC93230E8CFE007209A6 /* AppDelegate.m */; };
 		095ABC97230E8CFE007209A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095ABC96230E8CFE007209A6 /* ViewController.m */; };
 		095ABC9A230E8CFE007209A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095ABC98230E8CFE007209A6 /* Main.storyboard */; };
@@ -49,6 +54,14 @@
 		091175C6230FD36A0006EBC6 /* GLESUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESUtils.h; sourceTree = "<group>"; };
 		091175C7230FD36A0006EBC6 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		091175C8230FD36A0006EBC6 /* GLESMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLESMath.h; sourceTree = "<group>"; };
+		091175E6230FFA880006EBC6 /* Earth512x256.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth512x256.jpg; sourceTree = "<group>"; };
+		091175E7230FFA880006EBC6 /* sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
+		091175E8230FFA880006EBC6 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		091175E9230FFA880006EBC6 /* Moon256x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon256x128.png; sourceTree = "<group>"; };
+		091175ED230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		091175EE230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		091175F0231009FC0006EBC6 /* EarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthViewController.h; sourceTree = "<group>"; };
+		091175F1231009FC0006EBC6 /* EarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthViewController.m; sourceTree = "<group>"; };
 		095ABC8F230E8CFE007209A6 /* OPEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095ABC92230E8CFE007209A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		095ABC93230E8CFE007209A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +91,7 @@
 		091175B1230FC5690006EBC6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				091175D5230FF9960006EBC6 /* 地球自转 */,
 				091175A9230FC1F90006EBC6 /* BaseView.h */,
 				091175AA230FC1F90006EBC6 /* BaseView.m */,
 				091175BA230FCE010006EBC6 /* 金字塔 */,
@@ -133,6 +147,29 @@
 				091175C8230FD36A0006EBC6 /* GLESMath.h */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		091175D5230FF9960006EBC6 /* 地球自转 */ = {
+			isa = PBXGroup;
+			children = (
+				091175E5230FFA880006EBC6 /* res */,
+				091175F0231009FC0006EBC6 /* EarthViewController.h */,
+				091175F1231009FC0006EBC6 /* EarthViewController.m */,
+			);
+			path = "地球自转";
+			sourceTree = "<group>";
+		};
+		091175E5230FFA880006EBC6 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				091175EE230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.h */,
+				091175ED230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m */,
+				091175E6230FFA880006EBC6 /* Earth512x256.jpg */,
+				091175E7230FFA880006EBC6 /* sphere.h */,
+				091175E8230FFA880006EBC6 /* sphere.obj */,
+				091175E9230FFA880006EBC6 /* Moon256x128.png */,
+			);
+			path = res;
 			sourceTree = "<group>";
 		};
 		095ABC86230E8CFE007209A6 = {
@@ -229,11 +266,14 @@
 				091175AE230FC38B0006EBC6 /* shader.vsh in Resources */,
 				095ABCAE230E90FD007209A6 /* shaderf.fsh in Resources */,
 				091175C0230FCE5A0006EBC6 /* towerShader.vsh in Resources */,
+				091175EB230FFA880006EBC6 /* sphere.obj in Resources */,
 				091175B0230FC39C0006EBC6 /* shader.fsh in Resources */,
 				091175A3230F82520006EBC6 /* 123 in Resources */,
 				095ABCB0230EBA48007209A6 /* Particle.png in Resources */,
 				095ABC9F230E8CFF007209A6 /* LaunchScreen.storyboard in Resources */,
 				095ABC9C230E8CFF007209A6 /* Assets.xcassets in Resources */,
+				091175EC230FFA880006EBC6 /* Moon256x128.png in Resources */,
+				091175EA230FFA880006EBC6 /* Earth512x256.jpg in Resources */,
 				095ABC9A230E8CFE007209A6 /* Main.storyboard in Resources */,
 				095ABCAD230E90FD007209A6 /* shaderv.vsh in Resources */,
 				091175C1230FCE5A0006EBC6 /* towerShader.fsh in Resources */,
@@ -248,7 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				095ABC97230E8CFE007209A6 /* ViewController.m in Sources */,
+				091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				091175AB230FC1F90006EBC6 /* BaseView.m in Sources */,
+				091175F2231009FC0006EBC6 /* EarthViewController.m in Sources */,
 				091175C9230FD36A0006EBC6 /* GLESUtils.m in Sources */,
 				091175B9230FC6E80006EBC6 /* TriangleView.m in Sources */,
 				091175B5230FC58B0006EBC6 /* TestView.m in Sources */,
