@@ -7,6 +7,8 @@
 //
 
 #import "TowerViewController.h"
+#import "Util.h"
+#import "AGLKVertexAttribArrayBuffer.h"
 
 @interface TowerViewController ()
 {
@@ -15,6 +17,11 @@
 }
 @property (nonatomic) GLfloat yDegrees;
 @property (nonatomic) GLKMatrixStackRef modelviewMatrixStack;
+
+@property (nonatomic, strong) AGLKVertexAttribArrayBuffer *vertexBuffer;
+@property (nonatomic, strong) AGLKVertexAttribArrayBuffer *colorBuffer;
+@property (nonatomic, strong) AGLKVertexAttribArrayBuffer *normalBuffer;
+
 @end
 
 @implementation TowerViewController
@@ -47,7 +54,6 @@
     GLfloat   aspectRatio =
     (self.view.bounds.size.width) /
     (self.view.bounds.size.height);
-    /*
     cEffect.transform.projectionMatrix =
     GLKMatrix4MakeFrustum(
                           -1.0 * aspectRatio,
@@ -59,21 +65,23 @@
     
     cEffect.transform.modelviewMatrix =
     GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0);
- */
+
     
 }
 
 - (void)configureLight
 {
-    /*
+  
     cEffect.light0.enabled = GL_TRUE;
-    cEffect.light0.diffuseColor = GLKVector4Make(1,1,1,1);// Alpha
+    cEffect.light0.diffuseColor = GLKVector4Make(1,1,1,0.5);// Alpha
     cEffect.light0.position = GLKVector4Make(1,0,0.8,0);
-    cEffect.light0.ambientColor = GLKVector4Make(0.2,0.2,0.2,1);// Alpha
-     */
+//    cEffect.light0.ambientColor = GLKVector4Make(0.2,0.2,0.2,0.5);// Alpha
+
+//    ambientColor 环境光
+//    diffuseColor 漫反射光
+//    specularColor 镜面光
+    
 }
-
-
 
 
 - (void)setUpVertexData
@@ -83,6 +91,42 @@
     GLKMatrixStackLoadMatrix4(self.modelviewMatrixStack,
                               cEffect.transform.modelviewMatrix);
     
+    OPVertex vertexA = {{-0,  0.5, -0.0f}, {1, 0.0, 0},{1, 0.0, 0}};
+    OPVertex vertexB = {{0.5f, -0.5f, 0.5f}, {0, 1, 0,},{1, 0.0, 0}};
+    OPVertex vertexC = {{0.5f, -0.5f, -0.5f}, {0, 0, 1},{1, 0.0, 0}};
+    OPVertex vertexD = {{-0.5f, -0.5f, -0.5f}, {0, 1, 0},{1, 0.0, 0}};
+    OPVertex vertexE = {{-0.5f, -0.5f, 0.5f}, {0, 0, 1},{1, 0.0, 0}};
+    
+    OPTriangle triangles[6];
+    triangles[0] = OPTriangleMake(vertexA, vertexB, vertexC);
+    triangles[1] = OPTriangleMake(vertexA, vertexC, vertexD);
+    triangles[2] = OPTriangleMake(vertexA, vertexD, vertexE);
+    triangles[3] = OPTriangleMake(vertexA, vertexE, vertexB);
+    triangles[4] = OPTriangleMake(vertexC, vertexE, vertexD);
+    triangles[5] = OPTriangleMake(vertexC, vertexB, vertexE);
+    
+    OPTrianglesUpdateFaceNormals(triangles, 6);
+    
+    self.vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(OPVertex) numberOfVertices:sizeof(triangles)/sizeof(OPVertex) bytes:triangles usage:GL_DYNAMIC_DRAW];
+    self.colorBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(OPVertex) numberOfVertices:sizeof(triangles)/sizeof(OPVertex) bytes:triangles usage:GL_DYNAMIC_DRAW];
+    self.normalBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(OPVertex) numberOfVertices:sizeof(triangles)/sizeof(OPVertex) bytes:triangles usage:GL_DYNAMIC_DRAW];
+    
+    [self.vertexBuffer
+     prepareToDrawWithAttrib:GLKVertexAttribPosition
+     numberOfCoordinates:3
+     attribOffset:offsetof(OPVertex, position)
+     shouldEnable:YES];
+    [self.colorBuffer
+     prepareToDrawWithAttrib:GLKVertexAttribColor
+     numberOfCoordinates:3
+     attribOffset:offsetof(OPVertex, color)
+     shouldEnable:YES];
+    [self.normalBuffer
+     prepareToDrawWithAttrib:GLKVertexAttribNormal
+     numberOfCoordinates:3
+     attribOffset:offsetof(OPVertex, normal)
+     shouldEnable:YES];
+/*
     GLfloat attrArr[] =
     {
         0, 0.5f, 0.0f,           1, 0, 0,
@@ -116,7 +160,7 @@
     
     glEnableVertexAttribArray(GLKVertexAttribColor);
     glVertexAttribPointer(GLKVertexAttribColor, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (float *)NULL + 3);
-    
+    */
 }
 
 
@@ -125,6 +169,8 @@
     glEnable(GL_DEPTH_TEST);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+//    glEnable(GL_BLEND);
+//    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
     GLKMatrixStackPush(self.modelviewMatrixStack);
 
@@ -138,7 +184,8 @@
     
 
     [cEffect prepareToDraw];
-    glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
+//    glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
+    glDrawArrays(GL_TRIANGLES, 0, 18);
     
     GLKMatrixStackPop(self.modelviewMatrixStack);
     cEffect.transform.modelviewMatrix = GLKMatrixStackGetMatrix4(self.modelviewMatrixStack);

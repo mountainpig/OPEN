@@ -57,7 +57,9 @@
         view = [[TestView alloc] initWithFrame:self.view.bounds];
     }
     if (indexPath.row == 2) {
-        view = [[NSClassFromString(@"TowerView") alloc] initWithFrame:self.view.bounds];
+//        view = [[NSClassFromString(@"TowerView") alloc] initWithFrame:self.view.bounds];
+        
+        vc = [[NSClassFromString(@"TowerViewController") alloc] init];
     }
     if (indexPath.row == 3) {
         vc = [[NSClassFromString(@"EarthViewController") alloc] init];

@@ -32,6 +32,7 @@
 		095ABCAD230E90FD007209A6 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 095ABCAB230E90FD007209A6 /* shaderv.vsh */; };
 		095ABCAE230E90FD007209A6 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 095ABCAC230E90FD007209A6 /* shaderf.fsh */; };
 		095ABCB0230EBA48007209A6 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 095ABCAF230EBA48007209A6 /* Particle.png */; };
+		09A62CC42313A6CB003DC833 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A62CC32313A6CB003DC833 /* Util.m */; };
 		90511F28231188D7007C986A /* TowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90511F27231188D7007C986A /* TowerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		095ABCAB230E90FD007209A6 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
 		095ABCAC230E90FD007209A6 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
 		095ABCAF230EBA48007209A6 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
+		09A62CC22313A6CB003DC833 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		09A62CC32313A6CB003DC833 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		90511F26231188D7007C986A /* TowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerViewController.h; sourceTree = "<group>"; };
 		90511F27231188D7007C986A /* TowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +140,8 @@
 				091175BC230FCE2E0006EBC6 /* TowerView.m */,
 				90511F26231188D7007C986A /* TowerViewController.h */,
 				90511F27231188D7007C986A /* TowerViewController.m */,
+				09A62CC22313A6CB003DC833 /* Util.h */,
+				09A62CC32313A6CB003DC833 /* Util.m */,
 			);
 			path = "金字塔";
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09A62CC42313A6CB003DC833 /* Util.m in Sources */,
 				095ABC97230E8CFE007209A6 /* ViewController.m in Sources */,
 				091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				091175AB230FC1F90006EBC6 /* BaseView.m in Sources */,
