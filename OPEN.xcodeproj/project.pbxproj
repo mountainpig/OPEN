@@ -33,6 +33,8 @@
 		095ABCAE230E90FD007209A6 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 095ABCAC230E90FD007209A6 /* shaderf.fsh */; };
 		095ABCB0230EBA48007209A6 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 095ABCAF230EBA48007209A6 /* Particle.png */; };
 		09A62CC42313A6CB003DC833 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A62CC32313A6CB003DC833 /* Util.m */; };
+		09F8EE0B23152C2A00BF5B7A /* MagicCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EE0A23152C2A00BF5B7A /* MagicCubeViewController.m */; };
+		09F8EE0E23152C6400BF5B7A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F8EE0D23152C6400BF5B7A /* BaseViewController.m */; };
 		90511F28231188D7007C986A /* TowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90511F27231188D7007C986A /* TowerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,10 @@
 		095ABCAF230EBA48007209A6 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		09A62CC22313A6CB003DC833 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		09A62CC32313A6CB003DC833 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		09F8EE0923152C2A00BF5B7A /* MagicCubeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicCubeViewController.h; sourceTree = "<group>"; };
+		09F8EE0A23152C2A00BF5B7A /* MagicCubeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicCubeViewController.m; sourceTree = "<group>"; };
+		09F8EE0C23152C6400BF5B7A /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		09F8EE0D23152C6400BF5B7A /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		90511F26231188D7007C986A /* TowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerViewController.h; sourceTree = "<group>"; };
 		90511F27231188D7007C986A /* TowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,9 +103,12 @@
 		091175B1230FC5690006EBC6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				09F8EE0823152BD400BF5B7A /* 魔方 */,
 				091175D5230FF9960006EBC6 /* 地球自转 */,
 				091175A9230FC1F90006EBC6 /* BaseView.h */,
 				091175AA230FC1F90006EBC6 /* BaseView.m */,
+				09F8EE0C23152C6400BF5B7A /* BaseViewController.h */,
+				09F8EE0D23152C6400BF5B7A /* BaseViewController.m */,
 				091175BA230FCE010006EBC6 /* 金字塔 */,
 				091175B6230FC5B30006EBC6 /* 三角形 */,
 				091175B2230FC58B0006EBC6 /* 绘图 */,
@@ -216,6 +225,15 @@
 			path = OPEN;
 			sourceTree = "<group>";
 		};
+		09F8EE0823152BD400BF5B7A /* 魔方 */ = {
+			isa = PBXGroup;
+			children = (
+				09F8EE0923152C2A00BF5B7A /* MagicCubeViewController.h */,
+				09F8EE0A23152C2A00BF5B7A /* MagicCubeViewController.m */,
+			);
+			path = "魔方";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09A62CC42313A6CB003DC833 /* Util.m in Sources */,
+				09F8EE0E23152C6400BF5B7A /* BaseViewController.m in Sources */,
 				095ABC97230E8CFE007209A6 /* ViewController.m in Sources */,
 				091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				091175AB230FC1F90006EBC6 /* BaseView.m in Sources */,
@@ -310,6 +329,7 @@
 				091175BD230FCE2E0006EBC6 /* TowerView.m in Sources */,
 				091175CA230FD36A0006EBC6 /* GLESMath.c in Sources */,
 				095ABC94230E8CFE007209A6 /* AppDelegate.m in Sources */,
+				09F8EE0B23152C2A00BF5B7A /* MagicCubeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _listArray = @[@"三角形",@"绘图",@"金子塔",@"地球自转"];
+    _listArray = @[@"三角形",@"绘图",@"金子塔",@"地球自转",@"魔方"];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 160)];
     tableView.dataSource = self;
@@ -63,6 +63,9 @@
     }
     if (indexPath.row == 3) {
         vc = [[NSClassFromString(@"EarthViewController") alloc] init];
+    }
+    if (indexPath.row == 4) {
+        vc = [[NSClassFromString(@"MagicCubeViewController") alloc] init];
     }
     
     [self.navigationController pushViewController:vc animated:YES];

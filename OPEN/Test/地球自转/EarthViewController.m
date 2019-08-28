@@ -77,11 +77,11 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
                         1.0 * aspectRatio,
                         -1.0,
                         1.0,
-                        2.0,
+                        1.0,
                         120.0);
     
     cEffect.transform.modelviewMatrix =
-    GLKMatrix4MakeTranslation(0.0f, 0.0f, -5.0);
+    GLKMatrix4MakeTranslation(0.0f, 0.0f, -4.0);
     
 }
 

@@ -7,6 +7,15 @@
 //
 
 #import <GLKit/GLKit.h>
+/*
+typedef NS_ENUM(NSInteger, OPDirection)
+{
+    OPDirectionLeft = 0,
+    OPDirectionRight,
+    OPDirectionTop,
+    OPDirectionDown
+};
+*/
 
 //顶点数据结构
 typedef struct {
@@ -19,6 +28,10 @@ typedef struct {
     OPVertex vertices[3];
 }OPTriangle;
 
+typedef struct {
+    OPTriangle triangle[2];
+}OPSquare;
+
 //
 OPTriangle OPTriangleMake(OPVertex vertexA,OPVertex vertexB,OPVertex vertexC);
 
@@ -27,3 +40,6 @@ GLKVector3 OPTriangleFaceNormal(const OPTriangle triangle);
 
 //更新法向量
 void OPTrianglesUpdateFaceNormals(OPTriangle someTriangles[],int count);
+
+//更新颜色
+OPTriangle OPTrianglesUpdateFaceColor(OPTriangle triangle,GLKVector3 color);
