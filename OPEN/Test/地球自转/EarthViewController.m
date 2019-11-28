@@ -14,6 +14,7 @@
 {
     EAGLContext *context;
     GLKBaseEffect *cEffect;
+    float _rate;
 }
 @property (nonatomic) GLKMatrixStackRef modelviewMatrixStack;
 @property (strong, nonatomic) AGLKVertexAttribArrayBuffer *vertexPositionBuffer;
@@ -48,6 +49,60 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     [self setUpEffect];
     [self setUpVertexData];
     [self setUpTexture];
+    [self addAdjustBtn];
+}
+
+#pragma mark - draw
+- (void)addAdjustBtn
+{
+    UIButton *bigBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    bigBtn.frame = CGRectMake(10, 80, 60, 40);
+    [self.view addSubview:bigBtn];
+    bigBtn.backgroundColor = [UIColor whiteColor];
+    [bigBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [bigBtn setTitle:@"big" forState:UIControlStateNormal];
+    [bigBtn addTarget:self action:@selector(bigClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *smallBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    smallBtn.frame = CGRectMake(90, 80, 60, 40);
+    [self.view addSubview:smallBtn];
+    smallBtn.backgroundColor = [UIColor whiteColor];
+    [smallBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [smallBtn setTitle:@"small" forState:UIControlStateNormal];
+    [smallBtn addTarget:self action:@selector(smallClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)bigClick
+{
+    _rate -= 0.1;
+    _rate = MAX(0.1, _rate);
+    GLfloat   aspectRatio =
+    (self.view.bounds.size.width) /
+    (self.view.bounds.size.height);
+    cEffect.transform.projectionMatrix =
+    GLKMatrix4MakeFrustum(
+                        -1.0 * aspectRatio* _rate,
+                        1.0 * aspectRatio* _rate,
+                        -1.0 * _rate,
+                        1.0* _rate,
+                        1.0,
+                        120.0);
+}
+
+- (void)smallClick
+{
+    _rate += 0.1;
+    GLfloat   aspectRatio =
+    (self.view.bounds.size.width) /
+    (self.view.bounds.size.height);
+    cEffect.transform.projectionMatrix =
+    GLKMatrix4MakeFrustum(
+                        -1.0 * aspectRatio* _rate,
+                        1.0 * aspectRatio* _rate,
+                        -1.0 * _rate,
+                        1.0* _rate,
+                        1.0,
+                        120.0);
 }
 
 -(void)setUpConfig
@@ -71,17 +126,18 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     (self.view.bounds.size.width) /
     (self.view.bounds.size.height);
     
+    _rate = 1;
     cEffect.transform.projectionMatrix =
     GLKMatrix4MakeFrustum(
-                        -1.0 * aspectRatio,
-                        1.0 * aspectRatio,
-                        -1.0,
-                        1.0,
+                        -1.0 * aspectRatio* _rate,
+                        1.0 * aspectRatio* _rate,
+                        -1.0 * _rate,
+                        1.0* _rate,
                         1.0,
                         120.0);
     
     cEffect.transform.modelviewMatrix =
-    GLKMatrix4MakeTranslation(0.0f, 0.0f, -4.0);
+    GLKMatrix4MakeTranslation(0.0f, 0.0f, -2);
     
 }
 
@@ -154,7 +210,7 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     [self drawEarth];
-    [self drawMoon];
+//    [self drawMoon];
 }
 
 - (void)drawEarth
@@ -164,7 +220,7 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     
     cEffect.textureOrder = [NSArray arrayWithObjects: cEffect.texture2d0, cEffect.texture2d1, nil];
     
-    self.earthRotationAngleDegrees += 360.0f / 60.0f;
+    self.earthRotationAngleDegrees += 1;
     
     GLKMatrixStackPush(self.modelviewMatrixStack);
     /*
@@ -183,10 +239,9 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     
     GLKMatrixStackPop(self.modelviewMatrixStack);
     
+    /*
     cEffect.transform.modelviewMatrix =
     GLKMatrixStackGetMatrix4(self.modelviewMatrixStack);
-    
-
     GLKMatrixStackPush(self.modelviewMatrixStack);
     GLKMatrixStackTranslate(self.modelviewMatrixStack,
                             0.0, SceneMoonDistanceFromEarth * 1, 0);
@@ -199,7 +254,7 @@ static const GLfloat  SceneMoonDistanceFromEarth = 1.0;
     GLKMatrixStackPop(self.modelviewMatrixStack);
     cEffect.transform.modelviewMatrix =
     GLKMatrixStackGetMatrix4(self.modelviewMatrixStack);
-
+*/
     
 }
 

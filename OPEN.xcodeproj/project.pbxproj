@@ -23,6 +23,10 @@
 		091175EC230FFA880006EBC6 /* Moon256x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 091175E9230FFA880006EBC6 /* Moon256x128.png */; };
 		091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 091175ED230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m */; };
 		091175F2231009FC0006EBC6 /* EarthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 091175F1231009FC0006EBC6 /* EarthViewController.m */; };
+		093734B7238F72BF001CB294 /* TextureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 093734B6238F72BF001CB294 /* TextureView.m */; };
+		093734BA238F72E0001CB294 /* textureShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 093734B8238F72E0001CB294 /* textureShader.fsh */; };
+		093734BB238F72E0001CB294 /* textureShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 093734B9238F72E0001CB294 /* textureShader.vsh */; };
+		093734BD238F7454001CB294 /* kunkun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 093734BC238F7454001CB294 /* kunkun.jpg */; };
 		095ABC94230E8CFE007209A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 095ABC93230E8CFE007209A6 /* AppDelegate.m */; };
 		095ABC97230E8CFE007209A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 095ABC96230E8CFE007209A6 /* ViewController.m */; };
 		095ABC9A230E8CFE007209A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095ABC98230E8CFE007209A6 /* Main.storyboard */; };
@@ -66,6 +70,11 @@
 		091175EE230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
 		091175F0231009FC0006EBC6 /* EarthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EarthViewController.h; sourceTree = "<group>"; };
 		091175F1231009FC0006EBC6 /* EarthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarthViewController.m; sourceTree = "<group>"; };
+		093734B5238F72BF001CB294 /* TextureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureView.h; sourceTree = "<group>"; };
+		093734B6238F72BF001CB294 /* TextureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureView.m; sourceTree = "<group>"; };
+		093734B8238F72E0001CB294 /* textureShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = textureShader.fsh; sourceTree = "<group>"; };
+		093734B9238F72E0001CB294 /* textureShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = textureShader.vsh; sourceTree = "<group>"; };
+		093734BC238F7454001CB294 /* kunkun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kunkun.jpg; sourceTree = "<group>"; };
 		095ABC8F230E8CFE007209A6 /* OPEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		095ABC92230E8CFE007209A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		095ABC93230E8CFE007209A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +112,7 @@
 		091175B1230FC5690006EBC6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				093734B4238F729B001CB294 /* 显示图片 */,
 				09F8EE0823152BD400BF5B7A /* 魔方 */,
 				091175D5230FF9960006EBC6 /* 地球自转 */,
 				091175A9230FC1F90006EBC6 /* BaseView.h */,
@@ -189,6 +199,18 @@
 				091175E9230FFA880006EBC6 /* Moon256x128.png */,
 			);
 			path = res;
+			sourceTree = "<group>";
+		};
+		093734B4238F729B001CB294 /* 显示图片 */ = {
+			isa = PBXGroup;
+			children = (
+				093734BC238F7454001CB294 /* kunkun.jpg */,
+				093734B5238F72BF001CB294 /* TextureView.h */,
+				093734B6238F72BF001CB294 /* TextureView.m */,
+				093734B8238F72E0001CB294 /* textureShader.fsh */,
+				093734B9238F72E0001CB294 /* textureShader.vsh */,
+			);
+			path = "显示图片";
 			sourceTree = "<group>";
 		};
 		095ABC86230E8CFE007209A6 = {
@@ -299,8 +321,11 @@
 				091175A3230F82520006EBC6 /* 123 in Resources */,
 				095ABCB0230EBA48007209A6 /* Particle.png in Resources */,
 				095ABC9F230E8CFF007209A6 /* LaunchScreen.storyboard in Resources */,
+				093734BB238F72E0001CB294 /* textureShader.vsh in Resources */,
 				095ABC9C230E8CFF007209A6 /* Assets.xcassets in Resources */,
 				091175EC230FFA880006EBC6 /* Moon256x128.png in Resources */,
+				093734BA238F72E0001CB294 /* textureShader.fsh in Resources */,
+				093734BD238F7454001CB294 /* kunkun.jpg in Resources */,
 				091175EA230FFA880006EBC6 /* Earth512x256.jpg in Resources */,
 				095ABC9A230E8CFE007209A6 /* Main.storyboard in Resources */,
 				095ABCAD230E90FD007209A6 /* shaderv.vsh in Resources */,
@@ -319,6 +344,7 @@
 				09F8EE0E23152C6400BF5B7A /* BaseViewController.m in Sources */,
 				095ABC97230E8CFE007209A6 /* ViewController.m in Sources */,
 				091175EF230FFAFA0006EBC6 /* AGLKVertexAttribArrayBuffer.m in Sources */,
+				093734B7238F72BF001CB294 /* TextureView.m in Sources */,
 				091175AB230FC1F90006EBC6 /* BaseView.m in Sources */,
 				091175F2231009FC0006EBC6 /* EarthViewController.m in Sources */,
 				90511F28231188D7007C986A /* TowerViewController.m in Sources */,

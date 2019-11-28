@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "TestView.h"
 #import "TriangleView.h"
+#import "TextureView.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _listArray = @[@"三角形",@"绘图",@"金子塔",@"地球自转",@"魔方"];
+    _listArray = @[@"三角形",@"绘图",@"金子塔",@"地球自转",@"魔方",@"图片"];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 160)];
     tableView.dataSource = self;
@@ -66,6 +67,9 @@
     }
     if (indexPath.row == 4) {
         vc = [[NSClassFromString(@"MagicCubeViewController") alloc] init];
+    }
+    if (indexPath.row == 5) {
+        view = [[TextureView alloc] initWithFrame:self.view.bounds];
     }
     
     [self.navigationController pushViewController:vc animated:YES];

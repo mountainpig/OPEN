@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseView : UIView
 @property (nonatomic,assign) GLuint myPrograme;
 @property (nonatomic,strong) EAGLContext *myContext;
+- (GLuint)setupTexture:(NSString *)fileName;
 @end
 
 NS_ASSUME_NONNULL_END
